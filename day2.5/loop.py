@@ -43,3 +43,24 @@ for name in names:
 # for name in names:
 #     print(f"{name}: {names[name]}")
 
+
+
+
+
+# def recursive(number = 0):
+#     number += 1
+#     print(number)
+#     if number > 10:
+#         return 0
+#     recursive()
+# recursive()
+
+# number = 0
+# def recursive():
+#     global number
+#     number += 1
+#     print(number)
+#     if number > 10:
+#         return 0
+#     recursive()
+# recursive()
