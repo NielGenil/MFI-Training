@@ -1,54 +1,55 @@
 # django step by step Guide
 
-1. Create a directory/folder
-
+1. ## Create a directory/folder
+```
 Bash: mkdir <name_of_folder>
-
-2. Go inside of the newly created folder
-
+```
+2. ## Go inside of the newly created folder
+```
 Bash: cd <name_of_folder>
-
-3. Create VE
-
+```
+3. ## Create VE
+```
 Bash: python3 -m venv venv  #linux
 Bash: python -m venv venv  #windows
-
-4. Activate Virtual environment
-
+```
+4. ## Activate Virtual environment
+```
 Bash: source venv/bin/activate #linux
 Bash: source venv/Script/activate #windows
-
-5. install django
-
+```
+5. ## install django
+```
 Bash: pip install django
-
-6. Check the dependencies
-
+```
+6. ## Check the dependencies
+```
 Bash: pip freeze
-
-7. Save the dependencies into requirements.txt
-
+```
+7. ## Save the dependencies into requirements.txt
+```
 Bash: pip freeze > requirements.txt
-
-8. Create django projects
-
+```
+8. ## Create django projects
+```
 Bash: django-admin startproject core .
-
-9. migrate the database
-
+```
+9. ## migrate the database
+```
 Bash: python manage.py migrate
-
-10. create admin user
-
+```
+10. ## Create admin user
+```
 Bash: python manage.py createsuperuser
-
-11. create django app
-
+```
+11. ## create django app
+```
 Bash: python manage.py startapp <name_of_file>
+```
+12. ## register your app `setting.py`
 
-12. register your app `setting.py`
-
-`INSTALLED_APPS = [
+```python
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,9 +57,10 @@ Bash: python manage.py startapp <name_of_file>
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'student',
-]`
+]
+```
 
-13. Create Model
+13. ## Create Model
 
 ```python
 from django.db import models
@@ -85,7 +87,7 @@ class Student(models.Model):
         return f"{self.last_name} {self.first_name} {self.middle_name}"`
 ```
 
-14. register your model to admin panel `admin.py`
+14. ## register your model to admin panel `admin.py`
 
 ```python
 from django.contrib import admin
@@ -97,16 +99,19 @@ admin.site.register(Course)
 admin.site.register(College)
 admin.site.register(StudentCourse)
 ```
-15. Create a migration file
-
+15. ## Create a migration file
+```
 Bash: python manage.py makemigration
-
-16. Apply changes to database
-
+```
+16. ## Apply changes to database
+```
 Bash: python manage.py migration
-
-17. Run server
-
+```
+17. ## Run server
+```
 Bash: python manage.py runserver
-
-18. go to 127.0.0.1:8000/admin/
+```
+18. ## Goto 127.0.0.1:8000/admin/
+```
+Done!
+```
