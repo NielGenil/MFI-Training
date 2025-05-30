@@ -24,7 +24,7 @@ django-admin startproject core .
 
 5. run django server
 
-python manage.py runserver
+~python manage.py runserver~
 
 6. migrate database
 
@@ -41,3 +41,29 @@ python manage.py startapp <name of app>
 9. update db
 
 python manage.py makemigrations
+
+
+
+
+
+
+terminal 
+1. create folder
+
+2.python3 -m venv venv
+
+ls (check ve)
+
+3. pip install django
+
+pip freeze (check django)
+
+4. pip freeze > requirments.txt
+
+pip install -r requirments.txt (check)
+
+5. django-admin startproject core .
+
+6. python manage.py runserver
+
+7. 
