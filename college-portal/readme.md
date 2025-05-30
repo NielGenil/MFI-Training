@@ -1,50 +1,54 @@
 # django step by step Guide
 
 1. ## Create a directory/folder
-```
-Bash: mkdir <name_of_folder>
+```bash
+mkdir <name_of_folder>
 ```
 2. ## Go inside of the newly created folder
-```
-Bash: cd <name_of_folder>
+```bash
+cd <name_of_folder>
 ```
 3. ## Create VE
-```
+```bash
 Bash: python3 -m venv venv  #linux
+```
+```bash
 Bash: python -m venv venv  #windows
 ```
 4. ## Activate Virtual environment
+```bash
+source venv/bin/activate #linux
 ```
-Bash: source venv/bin/activate #linux
-Bash: source venv/Script/activate #windows
+```bash
+source venv/Script/activate #windows
 ```
 5. ## install django
-```
-Bash: pip install django
+```bash
+pip install django
 ```
 6. ## Check the dependencies
-```
-Bash: pip freeze
+```bash
+pip freeze
 ```
 7. ## Save the dependencies into requirements.txt
-```
-Bash: pip freeze > requirements.txt
+```bash
+pip freeze > requirements.txt
 ```
 8. ## Create django projects
-```
-Bash: django-admin startproject core .
+```bash
+django-admin startproject core .
 ```
 9. ## migrate the database
-```
-Bash: python manage.py migrate
+```bash
+python manage.py migrate
 ```
 10. ## Create admin user
-```
-Bash: python manage.py createsuperuser
+```bash
+python manage.py createsuperuser
 ```
 11. ## create django app
-```
-Bash: python manage.py startapp <name_of_file>
+```bash
+python manage.py startapp <name_of_file>
 ```
 12. ## register your app `setting.py`
 
@@ -100,16 +104,16 @@ admin.site.register(College)
 admin.site.register(StudentCourse)
 ```
 15. ## Create a migration file
-```
-Bash: python manage.py makemigration
+```bash
+python manage.py makemigration
 ```
 16. ## Apply changes to database
-```
-Bash: python manage.py migration
+```bash
+python manage.py migration
 ```
 17. ## Run server
-```
-Bash: python manage.py runserver
+```bash
+python manage.py runserver
 ```
 18. ## Goto 127.0.0.1:8000/admin/
 ```
