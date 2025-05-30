@@ -10,10 +10,10 @@ cd <name_of_folder>
 ```
 3. ## Create VE
 ```bash
-Bash: python3 -m venv venv  #linux
+python3 -m venv venv  #linux
 ```
 ```bash
-Bash: python -m venv venv  #windows
+python -m venv venv  #windows
 ```
 4. ## Activate Virtual environment
 ```bash
