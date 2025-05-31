@@ -20,9 +20,9 @@ python -m venv venv  #windows
 source venv/bin/activate #linux
 ```
 ```bash
-source venv/Script/activate #windows
+venv\Scripts\activate #windows
 ```
-5. ## install django
+5. ## Install django
 ```bash
 pip install django
 ```
@@ -38,7 +38,7 @@ pip freeze > requirements.txt
 ```bash
 django-admin startproject core .
 ```
-9. ## migrate the database
+9. ## Migrate the database
 ```bash
 python manage.py migrate
 ```
@@ -46,11 +46,11 @@ python manage.py migrate
 ```bash
 python manage.py createsuperuser
 ```
-11. ## create django app
+11. ## Create django app
 ```bash
 python manage.py startapp <name_of_file>
 ```
-12. ## register your app `setting.py`
+12. ## Register your app `setting.py`
 
 ```python
 INSTALLED_APPS = [
@@ -91,7 +91,7 @@ class Student(models.Model):
         return f"{self.last_name} {self.first_name} {self.middle_name}"`
 ```
 
-14. ## register your model to admin panel `admin.py`
+14. ## Register your model to admin panel `admin.py`
 
 ```python
 from django.contrib import admin
