@@ -17,6 +17,11 @@ class StudentRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Student.objects.all()
     serializer_class = StudentPostSerializer
 
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return StudentGetSerializer
+        return super().get_serializer_class()
+
 class GenderListCreate(generics.ListCreateAPIView):
     queryset = Gender.objects.all()
     serializer_class = GenderSerializer

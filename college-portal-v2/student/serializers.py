@@ -19,6 +19,8 @@ class StudentGetSerializer(serializers.ModelSerializer):
                   'birth_place', 
                   'lrn_number',
                   'educational_backgrounds',
+                  'degrees',
+                  'guardians',
         ]
 
 class StudentPostSerializer(serializers.ModelSerializer):
@@ -38,7 +40,8 @@ class StudentPostSerializer(serializers.ModelSerializer):
                   'address', 
                   'birth_place', 
                   'lrn_number',
-               
+                  'degrees',
+                  'guardians',
         ]
           # This will include related fields like educational_backgrounds
 

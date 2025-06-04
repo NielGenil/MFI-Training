@@ -20,9 +20,18 @@ class Student(models.Model):
     birth_place = models.CharField(max_length=100)
     lrn_number = models.CharField(max_length=50, unique=True)
     gender = models.ForeignKey(Gender, on_delete=models.CASCADE)
+    # educational_background
+    # degrees
+
+    # def __str__(self):
+    #     return f"{self.last_name} {self.first_name} {self.middle_name[0].upper()}."
+
+    class Meta:
+        ordering = ['last_name', 'first_name']
 
     def __str__(self):
-        return f"{self.last_name} {self.first_name} {self.middle_name[0].upper()}."
+        middle_initial = f"{self.middle_name[0].upper()}." if self.middle_name else ""
+        return f"{self.last_name} {self.first_name} {middle_initial}"
 
 class EducationBackground(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE,  related_name='educational_backgrounds')
@@ -34,4 +43,27 @@ class EducationBackground(models.Model):
 
     def __str__(self):
         return f"{self.highschool_name} {self.student}"
+    
+
+class Degree(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE , related_name='degrees')
+    school_attended = models.CharField(max_length=50)
+    degree_earned = models.CharField(max_length=50)
+    year_graduated = models.CharField(max_length=50)
+    latin_honors = models.CharField(max_length=50, blank=True, null=True)
+    thesis_title = models.CharField(max_length=100, blank=True, null=True)
+    school_address = models.TextField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.student}, {self.degree_earned}'
+    
+class GuardianInformation(models.Model):
+    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='guardians')
+    full_name = models.CharField(max_length=100)
+    contact_number = models.IntegerField()
+    relationship = models.CharField(max_length=50)
+    address = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.student}, {self.full_name}"
 
