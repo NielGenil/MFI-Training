@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.flex {
+    display: flex;
+    gap: 10px;
+    
+}
+.flex-col {
+    flex-direction: column;
+}
+.items-center {
+    align-items: center;
+}
+.flex-1 {
+    flex: 1;
+}
+.justify-center {
+    justify-content: center;
+}
+
+.box1{
+    width: 200px;
+    height: 200px;
+    background-color: red;
+}
+
+/* #flex-parent
+    flex-wrap
+    gap
+    flex-direction
+        row
+        row-reverse
+        column
+        column-reverse
+    align-content
+
+     */
+
+
+/* #flex-children
+    
+    justify-content
+    align-items
+        flex-start
+        flex-end
+        center
+        space-between
+        space-around
+        space-evenly
+        space-grow
+    flex
+        flex-shrink
+        flex-basis
+*/
