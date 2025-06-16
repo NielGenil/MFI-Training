@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="container"></h1>
+    <button id="btn-increase">Click me</button>
+    <script>
+        let count = 1;
+
+        document.getElementById('container').innerText = count;
+
+        const btn = document.getElementById('btn-increase');
+        btn.addEventListener('click', () => {
+            count++;
+            console.log(count);
+            document.getElementById('container').innerText = count;
+        });
+
+    </script>
+</body>
+</html>

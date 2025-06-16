@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-clifford: #da373d;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="w-screen min-h-screen flex justify-center">
+      <section
+        id="students"
+        class="flex flex-col gap-5 h-[600px] overflow-y-auto items-center"
+      ></section>
+
+      <section
+        id="courses"
+        class="flex flex-col gap-5 overflow-y-auto items-center"
+      ></section>
+
+      <section id="newCourse">
+        <input
+          type="text"
+          id="courseName"
+          placeholder="Enter course name"
+          class="p-2 border border-gray-300 rounded mb-4"
+        />
+        <button
+          id="addCourse"
+          onclick="createCourses({name: document.getElementById('courseName').value})"
+          class="bg-blue-500 text-white p-2 rounded"
+        >
+          Add Course
+        </button>
+      </section>
+    </main>
+
+    <!-- <script>
+      function createStudentCard(student) {
+        const card = document.createElement("div");
+        card.className = "bg-white p-4 rounded shadow-md w-80";
+        card.innerHTML = `
+<div class="h-[350px] min-h-[350px] border-solid bg-white border-2 border-gray-500 rounded-lg shadow-md p-6">
+  <div class="text-center">
+    <h2 class="text-2xl font-bold text-gray-800 mb-1">${student.first_name} ${student.middle_name} ${student.last_name}</h2>
+    <p class="text-sm text-gray-500">${student.gender.name} • ${student.birth_date}</p>
+  </div>
+
+  <div class="divide-y divide-gray-200 pt-4 space-y-4">
+    <div class="grid grid-cols-1 gap-y-2 text-sm text-gray-700">
+      <div><span class="font-medium">Birth Place:</span> ${student.birth_place}</div>
+      <div><span class="font-medium">Nationality:</span> ${student.nationality}</div>
+      <div><span class="font-medium">Religion:</span> ${student.religion}</div>
+      <div><span class="font-medium">Contact Number:</span> ${student.contact_number}</div>
+      <div><span class="font-medium">Email:</span> ${student.email}</div>
+      <div><span class="font-medium">Address:</span> ${student.address}</div>
+      <div><span class="font-medium">LRN Number:</span> ${student.lrn_number}</div>
+    </div>
+  </div>
+</div>
+
+            `;
+        return card;
+      }
+
+      const getStudents = async () => {
+        try {
+          const response = await fetch(
+            "http://172.17.2.133:8000/api/students/"
+          );
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const data = await response.json();
+          console.log(data);
+          return data;
+        } catch (error) {
+          console.error(
+            "There has been a problem with your fetch operation:",
+            error
+          );
+        }
+      };
+      getStudents().then((response) => {
+        response.forEach((student) => {
+          const card = createStudentCard(student);
+          document.getElementById("students").appendChild(card);
+        });
+      });
+    </script> -->
+
+    <!-- <script>
+      function createCourses(course) {
+        const card = document.createElement("div");
+        card.className = "bg-white p-4 rounded shadow-md w-80";
+        card.innerHTML = `
+            <div class="bg-white shadow-md rounded-lg p-6 space-y-2 border border-gray-500">
+                <h2 class="text-lg font-semibold text-gray-800">Course Name: <span class="font-normal">${course.name}</span></h2>
+            </div>
+            `;
+        return card;
+      }
+
+      const getCourses = async () => {
+        try {
+          const response = await fetch(
+            "http://172.17.2.133:8000/api/courses/"
+          );
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          const data = await response.json();
+          console.log(data);
+          return data;
+        } catch (error) {
+          console.error(
+            "There has been a problem with your fetch operation:",
+            error
+          );
+        }
+      };
+      getCourses().then((response) => {
+        response.forEach((course) => {
+          const card = createCourses(course);
+          document.getElementById("courses").appendChild(card);
+        });
+      });
+    </script> -->
+
+    <script>
+      //   document.getElementById("addCourse").addEventListener("click", function() {
+      //     const courseName = document.getElementById("courseName").value;
+      //     if (courseName) {
+      //       const newCourse = { name: courseName };
+      //       const card = createCourses(newCourse);
+      //       document.getElementById("courses").appendChild(card);
+      //       document.getElementById("courseName").value = ""; // Clear input field
+      //     } else {
+      //       alert("Please enter a course name.");
+      //     }
+      //   });
+
+      const postData = { name: document.getElementById("courseName").value };
+      const createCourses = async (postData) => {
+        const response = await fetch("http://172.17.2.133:8000/api/courses/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(postData),
+        });
+        const res = await response.json();
+        return await res;
+      };
+      document.getElementById("addCourse").addEventListener("click", () => {
+        createCourses({ name: document.getElementById("courseName").value });
+      });
+    </script>
+  </body>
+</html>

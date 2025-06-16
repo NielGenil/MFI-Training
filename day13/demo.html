@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title {
+            color: green;
+            font-size: 2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="welcome">Welcome to Javascript</h1>
+    <div id="container"></div>
+    <button onclick="handleClick()">Click me!</button>
+    <button onclick="resetColor()">Reset color</button>
+    <script>
+        // console.log("Hello, World!");
+        // const welcome = document.querySelector("#welcome");
+        
+        // Dome manipulation
+        const welcome = document.getElementById("welcome");
+        const container = document.getElementById("container");
+        let number = 1;
+
+        welcome.style.color = "red";
+
+        welcome.innerText = number;
+
+        container.innerHTML = `
+            <h2>Welcome to Javascript</h2>
+            <p>This is a paragraph inside the container.</p>
+        `;
+
+        // Event listener for the button
+        function handleClick() {
+            welcome.style.color = "blue";
+        }
+        
+        const resetColor = () => {
+            welcome.style.color = "red";
+        };
+
+        // Make element
+        const title = document.createElement("h1");
+        title.innerText = "This is a new title";
+        title.classList.add("title");
+        container.appendChild(title);
+
+        function handleClick() {
+            title.style.display = "none";
+        }
+
+        function resetColor (){
+            title.style.display = "block";
+        };
+
+        const data = ["apple", "banana", "cherry"];
+
+        const myList = document.createElement("ul");
+        container.appendChild(myList);
+     
+
+        for (const item in data){
+            console.log(item); // This will log the index, not the value
+            newList = document.createElement("li");
+            newList.innerText = data[item];
+            myList.appendChild(newList);
+        }
+        
+    </script>
+</body>
+</html>           
