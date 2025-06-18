@@ -1,4 +1,29 @@
+import { useRef } from "react";
+import { usePersistentForm } from "../hooks/usePersistentForm";
+import { useNavigate } from "react-router-dom";
+
 export default function StepFour() {
+    const navigate = useNavigate();
+    const academicYearRef = useRef(null);
+    const programEnrollRef = useRef(null);
+    const applicantTyperef = useRef(null);
+    const enrollmentStatus = useRef(null);
+    const modeoflearning = useRef(null);
+
+    const persistentField = {
+        academicYearRef,
+        programEnrollRef,
+        applicantTyperef,
+        enrollmentStatus,
+        modeoflearning,
+    }
+usePersistentForm({ refs: persistentField})
+
+const handleSubmit = () => {
+    alert("Success!");
+    localStorage.clear();
+    navigate("/create-student")
+}
   return (
   
       <form class="w-full max-w-[1000px] mx-auto shadow-2xl bg-white shadow-xl/30 border border-gray-300 p-6 rounded-2xl">
@@ -13,9 +38,9 @@ export default function StepFour() {
             >
               Academic Year / Semester
             </label>
-            <input
+            <input ref={academicYearRef}
               className="appearance-none block w-full  rounded-sm border border-gray-400 text-gray-700 borderrounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-              type="date"
+              type="text"
             />
           </div>
 
@@ -27,7 +52,7 @@ export default function StepFour() {
               Program to Enroll
             </label>
             <div className="relative">
-              <select
+              <select ref={programEnrollRef}
                 className="block appearance-none w-full rounded-sm border border-gray-400 text-gray-700 py-3 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-state"
               >
@@ -55,7 +80,7 @@ export default function StepFour() {
               Type of Applicant
             </label>
             <div className="relative">
-              <select
+              <select ref={applicantTyperef}
                 className="block appearance-none w-full rounded-sm border border-gray-400 text-gray-700 py-3 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-state"
               >
@@ -90,7 +115,7 @@ export default function StepFour() {
               Enrollment Status
             </label>
             <div className="relative">
-              <select
+              <select ref={enrollmentStatus}
                 className="block appearance-none w-full rounded-sm border border-gray-400 text-gray-700 py-3 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-state"
               >
@@ -118,7 +143,7 @@ export default function StepFour() {
               Mode of Learning
             </label>
             <div className="relative">
-              <select
+              <select ref={modeoflearning}
                 className="block appearance-none w-full rounded-sm border border-gray-400 text-gray-700 py-3 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-state"
               >
@@ -151,7 +176,7 @@ export default function StepFour() {
 
    <div class="flex flex-row-reverse">
 
-        <button className="mt-4 hover:bg-white hover:text-cyan-700 border hover:border-cyan-700 text-white bg-cyan-700 rounded md:rounded-lg p-2">Submit</button>
+        <button onClick={handleSubmit} className="mt-4 hover:bg-white hover:text-cyan-700 border hover:border-cyan-700 text-white bg-cyan-700 rounded md:rounded-lg p-2">Submit</button>
         </div>
       </form>
   

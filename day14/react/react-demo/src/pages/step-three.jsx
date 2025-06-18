@@ -1,4 +1,22 @@
+import { useRef } from "react";
+import { usePersistentForm } from "../hooks/usePersistentForm";
+
+
 export default function StepThree() {
+    const schoolAttendedRef = useRef(null);
+    const shsStrandRef = useRef(null);
+    const yearGraduatedRef = useRef(null);
+    const generalAverageRef= useRef(null);
+    const schoolAddressRef = useRef(null);
+
+    const persistentField = {
+        schoolAttendedRef,
+        shsStrandRef,
+        yearGraduatedRef,
+        generalAverageRef,
+        schoolAddressRef
+    }
+usePersistentForm({ refs: persistentField});
   return (
   
       <form class="w-full max-w-[1000px] mx-auto shadow-2xl bg-white shadow-xl/30 border border-gray-300 p-6 rounded-2xl">
@@ -13,7 +31,7 @@ export default function StepThree() {
             >
               Senior High School Attended
             </label>
-            <input
+            <input ref={schoolAttendedRef}
               className="appearance-none block w-full  rounded-sm border border-gray-400 text-gray-700 borderrounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="text"
             />
@@ -26,7 +44,7 @@ export default function StepThree() {
             >
               SHS Strand
             </label>
-            <input
+            <input ref={shsStrandRef}
               className="appearance-none block w-full rounded-sm border border-gray-400 text-gray-700 borderrounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="text"
             />
@@ -39,7 +57,7 @@ export default function StepThree() {
             >
               Year Graduated
             </label>
-            <input
+            <input ref={yearGraduatedRef}
               className="appearance-none block w-full rounded-sm border border-gray-400 text-gray-700 borderrounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="date"
             />
@@ -59,7 +77,7 @@ export default function StepThree() {
             >
               General Average (if required)
             </label>
-            <input
+            <input ref={generalAverageRef}
               className="appearance-none block w-full  rounded-sm border border-gray-400 text-gray-700 borderrounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="text"
             />
@@ -72,7 +90,7 @@ export default function StepThree() {
             >
               School Address
             </label>
-            <input
+            <input ref={schoolAddressRef}
               className="appearance-none block w-full rounded-sm border border-gray-400 text-gray-700 borderrounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
               type="text"
             />
