@@ -17,13 +17,16 @@ export default function StepFour() {
         enrollmentStatus,
         modeoflearning,
     }
-usePersistentForm({ refs: persistentField})
+usePersistentForm({ refs: persistentField});
 
 const handleSubmit = () => {
     alert("Success!");
     localStorage.clear();
-    navigate("/create-student")
+    setTimeout(() => {
+        navigate("/create-student");
+    }, 3000);
 }
+
   return (
   
       <form class="w-full max-w-[1000px] mx-auto shadow-2xl bg-white shadow-xl/30 border border-gray-300 p-6 rounded-2xl">
