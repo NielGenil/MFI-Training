@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 export default function CreateStudentPage() {
   return (
     <main className="flex-1 flex flex-col bg-gray-100 overflow-y-auto h-screen">
-      <div className="flex gap-1 px-5 py-2 mx-auto">
+      <div className="flex flex-wrap justify-center gap-1 px-5 py-2 mx-auto">
         <Link to={"/create-student"} className="bg-cyan-700 shadow-md px-3 py-2 rounded-lg text-white text-center">
             <p className="font-bold">Step 1</p>
             <p>Student Information</p>

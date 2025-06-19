@@ -17,17 +17,17 @@ export default function StepTwo() {
 usePersistentForm({ refs: persistentField});
 
   return (
-    <div className="flex items-center justify-center h-full bg-white p-4">
-      <form class="w-full max-w-[1000px] shadow-2xl bg-white shadow-xl/30 border border-gray-300 p-6 rounded-2xl">
+    
+      <form className="mx-auto ml-20 mr-20 shadow-2xl bg-white shadow-xl/30 border border-gray-300 p-6 rounded-2xl"> 
 
 
 
 
 {/* Guardian */}
-        <div class="flex flex-wrap -mx-3 mb-2">
-          <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+        <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
               for="grid-first-name"
             >
               Guardian’s Name
@@ -65,10 +65,10 @@ usePersistentForm({ refs: persistentField});
           </div>
         </div>
 
-        <div class="flex flex-wrap -mx-3 mb-2">
-          <div class="w-full md:w-3/3 px-3 mb-6 md:mb-0">
+        <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="w-full md:w-3/3 px-3 mb-6 md:mb-0">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
               for="grid-first-name"
             >
               Home Address (if different from student)
@@ -88,6 +88,6 @@ usePersistentForm({ refs: persistentField});
 
         <button className=""></button>
       </form>
-    </div>
+   
   );
 }

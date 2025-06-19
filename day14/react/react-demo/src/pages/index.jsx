@@ -7,7 +7,7 @@ export default function IndexPage() {
       <nav className="flex justify-between items-center px-5 py-2 bg-white shadow-md">
         <div className="flex items-center gap-2">
         <img
-          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.clipartmax.com%2Fpng%2Fmiddle%2F205-2057839_lspu-los-ba%25C3%25B1os-laguna-state-polytechnic-university-logo.png&f=1&nofb=1&ipt=47e82575cf968e2f8d72eb64ed89ce5c559b14683cd6f1eb369d912af91f4a08"
+          src="https://lspu-orms.42web.io/resources/images/logo.png"
           alt=""
           className="h-[40px]"
         />

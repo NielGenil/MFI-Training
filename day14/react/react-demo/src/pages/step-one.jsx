@@ -1,5 +1,6 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePersistentForm } from "../hooks/usePersistentForm";
+import { getGenders } from "../api";
 
 export default function StepOne() {
   const firstNameRef = useRef(null);
@@ -33,16 +34,28 @@ export default function StepOne() {
     addressRef,
     birstPlaceRef,
     lrnRef,
-  }
+  };
+// GET DATA ON DATA BASE
+  const [gender, setGender] = useState([]);
+
+  console.log(gender, 'gender state');
+
+  useEffect(() => {
+    getGenders().then((response) => {
+      setGender(response)
+    });
+  }, []);
+
   usePersistentForm({ refs: persistentFields});
+  
   return (
-    <div className="flex items-center justify-center h-full bg-white p-4">
-      <form class="w-full max-w-[1000px] shadow-2xl bg-white shadow-xl/30 border border-gray-300 p-6 rounded-2xl"> 
-        <div class="flex flex-wrap -mx-3 mb-2">
-          <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+  
+      <form className="mx-auto ml-20 mr-20 shadow-2xl bg-white shadow-xl/30 border border-gray-300 p-6 rounded-2xl"> 
+        <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-first-name"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+          
             >
               First Name
             </label>
@@ -55,7 +68,7 @@ export default function StepOne() {
           <div className="w-full md:w-1/3 px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-last-name"
+          
             >
               Middle Name (optional)
             </label>
@@ -68,7 +81,7 @@ export default function StepOne() {
           <div className="w-full md:w-1/3 px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-last-name"
+            
             >
               Last Name
             </label>
@@ -79,11 +92,11 @@ export default function StepOne() {
           </div>
         </div>
 
-        <div class="flex flex-wrap -mx-3 mb-2">
-          <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+        <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-first-name"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+             
             >
               Date of Birth
             </label>
@@ -96,7 +109,7 @@ export default function StepOne() {
           <div className="w-full md:w-1/3 px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-last-name"
+        
             >
               Age
             </label>
@@ -109,7 +122,7 @@ export default function StepOne() {
           <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-state"
+        
             >
               Gender
             </label>
@@ -118,8 +131,11 @@ export default function StepOne() {
                 className="block appearance-none w-full rounded-sm border border-gray-400 text-gray-700 py-3 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="grid-state"
               >
-                <option>Male</option>
-                <option>Female</option>
+                {gender?.map((gender) => {
+                  return (<option key={gender.id} value={gender.id}>{gender.name}</option>)
+                })}
+                
+                
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <svg
@@ -134,11 +150,11 @@ export default function StepOne() {
           </div>
         </div>
 
-        <div class="flex flex-wrap -mx-3 mb-2">
-          <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+        <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-first-name"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+             
             >
               Civil Status
             </label>
@@ -151,7 +167,7 @@ export default function StepOne() {
           <div className="w-full md:w-1/3 px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-last-name"
+         
             >
               Nationality
             </label>
@@ -164,7 +180,7 @@ export default function StepOne() {
           <div className="w-full md:w-1/3 px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-last-name"
+            
             >
               Religion
             </label>
@@ -175,11 +191,11 @@ export default function StepOne() {
           </div>
         </div>
 
-        <div class="flex flex-wrap -mx-3 mb-2">
-          <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+        <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-first-name"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+           
             >
               Contact Number
             </label>
@@ -192,7 +208,7 @@ export default function StepOne() {
           <div className="w-full md:w-1/3 px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-last-name"
+        
             >
               Email Address
             </label>
@@ -205,7 +221,7 @@ export default function StepOne() {
           <div className="w-full md:w-1/3 px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-last-name"
+          
             >
               Address
             </label>
@@ -217,11 +233,11 @@ export default function StepOne() {
         </div>
 
 
-                <div class="flex flex-wrap -mx-3 mb-2">
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <div className="flex flex-wrap -mx-3 mb-2">
+          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label
-              class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-first-name"
+              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+             
             >
               Place of Birth
             </label>
@@ -234,7 +250,7 @@ export default function StepOne() {
           <div className="w-full md:w-1/2 px-3">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-last-name"
+             
             >
               LRN Number
             </label>
@@ -252,6 +268,6 @@ export default function StepOne() {
 
  
       </form>
-    </div>
+    
   );
 }
