@@ -49,3 +49,18 @@ export const getEnrollmentType = async() => {
     console.log(res);
     return res;
 };
+
+export const postEnrollmentType = async (data) => {
+    const response = await fetch(`${BASE_URL}/api/onetapEnroll/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data), // `data` is the payload being sent
+    });
+
+    const res = await response.json();
+    console.log(res);
+    return res;
+};
+

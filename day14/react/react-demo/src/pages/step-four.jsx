@@ -7,6 +7,7 @@ import {
   getEnrollmentStatus,
   getEnrollmentType,
   getModeofLearning,
+  postEnrollmentType,
 } from "../api";
 
 export default function StepFour() {
@@ -73,7 +74,7 @@ export default function StepFour() {
     e.preventDefault();
     const postData = {
       //step-1
-      student: {
+      student_information: {
         first_name: localStorage.getItem("firstNameRef"),
         last_name: localStorage.getItem("lastNameRef"),
         middle_name: localStorage.getItem("middleNameRef"),
@@ -81,7 +82,7 @@ export default function StepFour() {
         gender: localStorage.getItem("genderRef"),
         nationality: localStorage.getItem("nationalityRef"),
         religion: localStorage.getItem("religionRef"),
-        contanct_number: localStorage.getItem("contactNumberRef"),
+        contact_number: localStorage.getItem("contactNumberRef"),
         email: localStorage.getItem("emailAddressRef"),
         address: localStorage.getItem("addressRef"),
         birth_place: localStorage.getItem("birstPlaceRef"),
@@ -91,11 +92,11 @@ export default function StepFour() {
       guardian_information: {
         full_name: localStorage.getItem("guardianNameRef"),
         relationship: localStorage.getItem("guardianRelationRef"),
-        contact_number: localStorage.getItem("0"),
+        contact_number: localStorage.getItem("guardianContactRef"),
         address: localStorage.getItem("guardianAddressRef"),
       },
       // step-3
-      educational_backgorund: {
+      educational_background: {
         highschool_name: localStorage.getItem("schoolAttendedRef"),
         strand: localStorage.getItem("shsStrandRef"),
         year_graduated: localStorage.getItem("yearGraduatedRef"),
@@ -103,15 +104,18 @@ export default function StepFour() {
         school_address: localStorage.getItem("schoolAddressRef"),
       },
       // step-4
-      enrollment: {
-        academic_year: localStorage.getItem("academicYearRef"),
-        course: 2,
-        type: localStorage.getItem("applicantTyperef"),
-        status: localStorage.getItem("enrollmentStatus"),
-        mode_of_learning: localStorage.getItem("modeoflearning"),
-      },
+
+      academic_year: localStorage.getItem("academicYearRef"),
+      course: localStorage.getItem("course"),
+      type: localStorage.getItem("applicantTyperef"),
+      status: localStorage.getItem("enrollmentStatus"),
+      mode_of_learning: localStorage.getItem("modeoflearning"),
     };
-    console.log('asdasdasdas', postData);
+    console.log("DATA", postData);
+    postEnrollmentType(postData).then((res) => {
+      console.log("Success:", res);
+    });
+
     // alert("Success!");
     // localStorage.clear();
     // setTimeout(() => {
